@@ -1,0 +1,714 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Inicio.css">
+
+    <!-- Por enquanto, não consegui fazer o uso offline desta biblioteca -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+    
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+
+    <div class="intro">
+        <h1 id="titulo">Introdução</h1>
+        <p class="texto" id="p1">
+            ENG3D é um programa que tem como foco o aprendizado do Método de Rigidez Direta 
+            (MRD) em que você poderá modelar e calcular pórticos em 2 ou 3 dimensões.
+            O MRD é, basicamente, um método desenvolvido para o cálculo de estruturas que 
+            utiliza a Lei de Hooke na sua forma matricial.
+            Mais detalhes serão explicados mais adiante.
+        </p>        
+        <p class="texto" id="p2">
+            Este programa ainda está em desenvolvimento e portanto ainda possui uma série de limitações. 
+            Assim, para ele funcionar corretamente, é necessário que você siga as orientações
+            mostradas neste guia. A seguir veremos o primeiro passo: inserir os dados de entrada.
+        </p>
+    </div>
+    <div id="dadosEntrada">
+        <h1 id="titulo">Dados de Entrada</h1>
+        <div id="Coordenadas">
+            <h2>Coordenadas</h2>
+            <p>
+                O primeiro passo para o dimensionamento da estrutura é inserir as coordenadas dos
+                pontos. 
+                Assim que acessar a aba <i>Coordenadas</i>, você poderá identificar um campo para
+                inserir os dados dos pontos, e, ao lado, uma lista com os pontos que você já inseriu.
+                Você deve inserir os pontos na ordem correta, começando pelo ponto 1 e adicionando os
+                demais pontos até a quantidade total de pontos da estrutura. 
+                Assim, não é possível, por exemplo, inserir as coordenadas do ponto 1 e depois 
+                inserir as coordenadas do ponto 4. 
+                Em vez disso, é necessário inserir as coordenadas dos pontos 2 e 3, respectivamente, 
+                para depois inserir as coordenadas do ponto 4.
+                Uma limitação desta etapa é a impossibilidade de deletar os pontos já adicionados. É 
+                possível editá-los, redefinindo suas coordenadas, mas não excluí-los.
+            </p>
+            <img src="../Assets/CoordenadasInput.jpg" style="position:relative;left:500px;width:15%;">
+            <img src="../Assets/CoordenadasLista.jpg" style="position:relative;left:530px;top:-30px;width:20%;">
+            <p>
+                Há ainda um campo para o desenho em 3 dimensões. 
+                Nele, você pode visualizar a estrutura e utilizar o mouse com os comandos de 
+                zoom (scroll), rotação (botão esquerdo) e pan (botão direito).
+                Você irá notar que, no desenho, há uma indicação do sistema de coordenadas XYZ.
+                Não se preocupe com o posicionamento desses eixos, pois eles não estão localizados
+                na origem. Caso estivessem, os desenhos ficariam muito carregados e de 
+                difícil compreensão. Esses eixos servem apenas para auxiliar o dimensionamento, 
+                indicando suas direções e sentidos no espaço tridimensional.
+            </p>
+            <img src="../Assets/CoordenadasDesenho.jpg" style="position:relative;left:560px;width:25%;">
+        </div>
+        <div id="Conectividades">
+            <h2>Conectividades</h2>
+            <p>
+                Com os pontos adicionados, agora devemos definir os elementos, ou as barras, da 
+                estrutura. Para isso, basta você definir o número da barra e os pontos que formam ela,
+                onde cada barra possui dois pontos: o ponto A e o ponto B.
+                Assim como na etapa anterior, é necessário inserir as barras na ordem correta.
+                A ordem dos pontos, porém, não tem nenhuma obrigatoriedade. 
+                Numa estrutura com 3 pontos, podemos inserir a barra 1 com o ponto A = 1 e o ponto 
+                B = 2, ou com o ponto A = 2 e o ponto B = 1, e os resultados serão os mesmos. 
+            </p>
+            <img src="../Assets/ConectividadesInput.jpg" style="position:relative;left:520px;width:15%;">
+            <img src="../Assets/ConectividadesLista.jpg" style="position:relative;left:550px;top:-30px;width:20%;">
+        </div>
+        <div id="Restricoes">
+            <h2>Restrições</h2>
+            <p>
+                A aba <i>Restrições</i> se refere aos apoios da estrutura. Nesta etapa, você poderá
+                definir a restrições dos pontos que estarão agindo como apoios para a estrutura. 
+                É possível fazer combinações variadas, de forma que se possa restringir translações
+                e/ou rotações de um ponto. A tabela abaixo mostra a legenda das restrições.
+            </p>    
+            <table class="tabela" id="tabelaRestricoes">
+                <thead>
+                    <tr>
+                        <td>Translação na direção X</td>
+                        <td>Translação na direção Y</td>
+                        <td>Translação na direção Z</td>
+                        <td>Rotação em torno do eixo X</td>
+                        <td>Rotação em torno do eixo Y</td>
+                        <td>Rotação em torno do eixo Z</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TX</td>
+                        <td>TY</td>
+                        <td>TZ</td>
+                        <td>RX</td>
+                        <td>RY</td>
+                        <td>RZ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <img src="../Assets/RestricoesInput.jpg" style="position:relative;left:550px;width:10%;">
+            <img src="../Assets/RestricoesLista.jpg" style="position:relative;left:570px;width:25%;top:-150px">
+            <p>
+                Você irá notar que, quando um ponto possui qualquer tipo de restrição, ele passa a 
+                ficar vermelho no desenho, indicando que aquele ponto está agindo como um apoio da estrutura.
+            </p>
+        </div>
+        <div id="Cargas">
+            <h2>Cargas</h2>
+            <p>
+                Agora, podemos lançar as cargas sobre a estrutura. Até o momento, este programa só permite
+                o lançamento de cargas pontuais (força e momento). A tabela abaixo mostra a legenda das cargas.
+            </p>
+            <table class="tabela" id="tabelaCargas">
+                <thead>
+                    <tr>
+                        <td>Força na direção X</td>
+                        <td>Força na direção Y</td>
+                        <td>Força na direção Z</td>
+                        <td>Momento em torno do eixo X</td>
+                        <td>Momento em torno do eixo Y</td>
+                        <td>Momento em torno do eixo Z</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FX</td>
+                        <td>FY</td>
+                        <td>FZ</td>
+                        <td>MX</td>
+                        <td>MY</td>
+                        <td>MZ</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <img src="../Assets/CargasInput.jpg" style="position:relative;left:500px;width:10%;">
+            <img src="../Assets/CargasLista.jpg" style="position:relative;left:520px;width:30%;top:-120px;">
+            <p>
+                Ao abrir a aba <i>Cargas</i>, os pontos que foram inseridos serão mostrados automaticamente
+                com todas as cargas iguais a 0 (zero). A partir disso, podemos inserir as cargas de cada ponto.
+            </p>
+            <p>	
+                Note que as cargas que estão sendo inseridas são as cargas externas da estrutura. As cargas internas,
+                ou esforços internos, serão calculados e mostrados posteriormente.
+            </p>
+        </div>
+        <div id="Propriedades">
+            <h2>Propriedades</h2>
+            <p>
+                Na aba <i>Propriedades</i>, deve-se inserir as propriedades físicas e geométricas que serão aplicadas
+                em todos os elementos. Até o momento, este programa possui a limitação de trabalhar com barras de 
+                seção circular, onde os momentos de inércia Y e Z são iguais.
+            </p>
+            <img src="../Assets/PropriedadesInput.jpg" style="position:relative;left:500px;width:12%;top:0px;">
+            <img src="../Assets/PropriedadesLista.jpg" style="position:relative;left:520px;width:40%;top:-100px;">
+        </div>
+    </div>
+    <div id="MRD">
+        <h1 id="titulo">Método de Rigidez Direta</h1>
+        <div id="Intro">
+            <p>
+                O Método de Rigidez Direta, como já foi dito, tem como base a Lei de Hooke:
+            </p>
+            <div class="math" id="Hooke">
+                \begin{equation}
+                F = kx
+                \end{equation}            
+            </div>
+            <p>
+                Podemos partir desse conceito inicial e assumir que uma estrutura
+                se comporta semelhante a uma mola, ou seja, possui uma rigidez e, ao ser submetida
+                a algum carregamento, apresentam uma deformação proporcional a esse carregamento 
+                de forma linear.
+            </p>
+            <p>
+                Assim, com uma estrutura formada e submetida a carregamento(s), podemos calcular
+                os esforços e deslocamentos inicialmente desconhecidos a partir da matriz de rigidez
+                (Matriz de Rigidez Global). Essa matriz é formada pelas matrizes de rigidez de cada
+                elemento da estrutura, e a formação de cada uma delas é explicada a seguir.
+            </p>
+        </div>
+        <div id="Local">
+            <h2>Sistema Local</h2>
+            <p>
+                Cada elemento da estrutura é constituído de uma barra com dois pontos (A e B).
+                Cada ponto possui 6 graus de liberdade para deslocamentos e cargas. Para os
+                deslocamentos tem-se a possibilidades de 3 translações e 3 rotações. Para as 
+                cargas tem-se a possibilidade de 3 cargas pontuais
+                e 3 cargas momento. A figura abaixo mostra esse modelo:
+            </p>
+            <img src="../Assets/elemento.png" style="position:relative;left:400px;width:50%">
+            <p>
+                A partir disso, obtemos o formato matricial da equação da Lei de Hooke aplicada
+                a cada elemento da estrutura:
+            </p>
+            <div class="math">
+                \begin{equation}
+                [F]_{12 &#1093 1} = [K]_{12 &#1093 12}[U]_{12 &#1093 1}
+                \end{equation}
+
+            </div>
+            <p>
+                Para obter as matrizes do sistema local, devemos analisar os esforços 
+                que são gerados ao se impor o deslocamento unitário de cada grau de liberdade.
+                As figuras abaixo mostram os casos possíveis:            
+            </p>
+            <img src="../Assets/apendicetabelas.png" style="width:40%;position:relative;left:450px;">
+            <p>
+                Cada caso gera uma equação do tipo <i>F = kx</i>. Agrupando essas equações,
+                obtemos a formulação matricial do sistema local, que é a seguinte:
+            </p>
+            <div class="math" id="MRL">
+
+                \begin{equation}
+                    \begin{pmatrix}
+                        F_{xA} \\
+                        F_{yA} \\
+                        F_{zA} \\
+                        M_{xA} \\
+                        M_{yA} \\
+                        M_{zA} \\
+                        F_{xB} \\
+                        F_{yB} \\
+                        F_{zB} \\
+                        M_{xB} \\
+                        M_{yB} \\
+                        M_{zB} \\
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                        \dfrac{EA}{L} & 0 & 0 & 0 & 0 & 0 & -\dfrac{EA}{L} & 0 & 0 & 0 & 0 & 0\\
+                        0 & \dfrac{12EI_{z}}{L^{3}} & 0 & 0 & 0 & \dfrac{6EI_{z}}{L^{2}} & 0 & -\dfrac{12EI_{z}}{L^{3}} & 0 & 0 & 0 & \dfrac{6EI_{z}}{L^{2}} \\
+                        0 & 0 & \dfrac{12EI_{y}}{L^{3}} & 0 & -\dfrac{6EI_{y}}{L^{2}} & 0 & 0 & 0 & -\dfrac{12EI_{y}}{L^{3}} & 0 & -\dfrac{6EI_{y}}{L^{2}} & 0 \\
+                        0 & 0 & 0 & \dfrac{GI_{x}}{L} & 0 & 0 & 0 & 0 & 0 & -\dfrac{GI_{x}}{L} & 0 & 0 \\
+                        0 & 0 & -\dfrac{6EI_{y}}{L^{2}} & 0 & \dfrac{4EI_{y}}{L} & 0 & 0 & 0 & \dfrac{6EI_{y}}{L^{2}} & 0 & \dfrac{2EI_{y}}{L} & 0 \\
+                        0 & \dfrac{6EI_{z}}{L^{2}} & 0 & 0 & 0 & \dfrac{4EI_{z}}{L} & 0 & -\dfrac{6EI_{z}}{L^{2}} & 0 & 0 & 0 & \dfrac{2EI_{z}}{L} \\
+                        -\dfrac{EA}{L} & 0 & 0 & 0 & 0 & 0 & \dfrac{EA}{L} & 0 & 0 & 0 & 0 & 0\\
+                        0 & -\dfrac{12EI_{z}}{L^{3}} & 0 & 0 & 0 & -\dfrac{6EI_{z}}{L^{2}} & 0 & \dfrac{12EI_{z}}{L^{3}} & 0 & 0 & 0 & -\dfrac{6EI_{z}}{L^{2}} \\
+                        0 & 0 & -\dfrac{12EI_{y}}{L^{3}} & 0 & \dfrac{6EI_{y}}{L^{2}} & 0 & 0 & 0 & \dfrac{12EI_{y}}{L^{3}} & 0 & \dfrac{6EI_{y}}{L^{2}} & 0 \\
+                        0 & 0 & 0 & -\dfrac{GI_{x}}{L} & 0 & 0 & 0 & 0 & 0 & \dfrac{GI_{x}}{L} & 0 & 0 \\
+                        0 & 0 & -\dfrac{6EI_{y}}{L^{2}} & 0 & \dfrac{2EI_{y}}{L} & 0 & 0 & 0 & \dfrac{6EI_{y}}{L^{2}} & 0 & \dfrac{4EI_{y}}{L} & 0 \\
+                        0 & \dfrac{6EI_{z}}{L^{2}} & 0 & 0 & 0 & \dfrac{2EI_{z}}{L} & 0 & -\dfrac{6EI_{z}}{L^{2}} & 0 & 0 & 0 & \dfrac{EI_{z}}{L}
+                    \end{pmatrix} 
+                    \begin{pmatrix}
+                        &#948_{xA} \\
+                        &#948_{yA} \\
+                        &#948_{zA} \\
+                        &#966_{xA} \\
+                        &#966_{yA} \\
+                        &#966_{zA} \\
+                        &#948_{xB} \\
+                        &#948_{yB} \\
+                        &#948_{zB} \\
+                        &#966_{xB} \\
+                        &#966_{yB} \\
+                        &#966_{zB} \\
+                    \end{pmatrix}
+                \end{equation}
+            </div>
+            <p>
+                Com o conjunto dos elemento e todos os seus sistemas locais formados, devemos
+                ainda realizar uma transformação antes de formar o sistema global, visto que 
+                as orientações dos eixos dos sistemas locais não estão em conformidade uns com 
+                os outros. Devemos então realizar uma transformação linear em cada 
+                sistema de coordenadas local para que estejam orientados de acordo com o sistema
+                de coordenadas global.
+            </p>
+            <img src="../Assets/Eixos.png" style="position:relative;left:450px;width:35%">
+            <p>
+                A fim de que seja possível orientar o elemento no espaço tridimensional,
+                precisamos, além das coordenadas dos pontos A e B do elemento, de um ponto 
+                auxiliar. Esse ponto pode estar em qualquer posição, menos naquelas em que 
+                a extensão da linha que passa pela barra se extende. Este programa foi desenvolvido
+                de forma que o ponto auxiliar seja automaticamente posicionado no centro da barra com o 
+                acréscimo de 1 unidade na coordenada do eixo <i>Y</i>, salvo o caso em que o 
+                elemento se encontre na mesma direção do eixo <i>Y</i>. Nesse caso, o ponto 
+                auxiliar é posicionado no centro da barra com o descréscimo de 1 unidade no eixo <i>X</i>.
+            </p>
+            <img src="../Assets/P auxiliar.png" style="position:relative;left:500px;width:30%">
+            <p>
+                Para realizar a rotação, devemos fazer uso de uma matriz de rotação, que é
+                calculada da seguinte forma:
+            </p>
+            <div class="math" id="rot">
+                \begin{equation}
+                    R = 
+                    \begin{pmatrix}
+                        \overline{R} & 0 & 0 & 0 \\
+                        0 & \overline{R} & 0 & 0 \\
+                        0 & 0 & \overline{R} & 0 \\
+                        0 & 0 & 0 & \overline{R} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    \overline{R} = 
+                    \begin{pmatrix}
+                        &#955_{11} &  &#955_{12} &  &#955_{13} \\
+                        &#955_{21} &  &#955_{22} &  &#955_{23} \\
+                        &#955_{31} &  &#955_{32} &  &#955_{33} \\
+                    \end{pmatrix}
+                \end{equation}
+                \begin{equation}
+                    &#955_{11} = \dfrac{X_{B} - X_{A}}{L} 
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{12} = \dfrac{Y_{B} - Y_{A}}{L} 
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{13} = \dfrac{Z_{B} - Z_{A}}{L}
+                    \space\space\space\space\space\space\space\space               
+                    L = \sqrt{(X_{B}-X_{A})^2+(Y_{B}-Y_{A})^2+(Z_{B}-Z_{A})^2}
+                \end{equation}
+                \begin{equation}
+                    &#945 = \dfrac{X_{P}-X_{A}}{L_{P}}
+                    \space\space\space\space\space\space\space\space               
+                    &#946 = \dfrac{Y_{P}-Y_{A}}{L_{P}}
+                    \space\space\space\space\space\space\space\space               
+                    &#947 = \dfrac{Z_{P}-Z_{A}}{L_{P}}
+                    \space\space\space\space\space\space\space\space               
+                    L_{P} = \sqrt{(X_{P}-X_{A})^2+(Y_{P}-Y_{A})^2+(Z_{P}-Z_{A})^2}
+                \end{equation}
+                \begin{equation}
+                    &#955_{31} = \dfrac{&#955_{12}&#947-&#955_{13}&#946}{c}
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{32} = \dfrac{&#955_{13}&#945-&#955_{11}&#947}{c}
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{33} = \dfrac{&#955_{11}&#946-&#955_{12}&#945}{c}
+                    \space\space\space\space\space\space\space\space               
+                    c = \sqrt{(&#955_{12}&#947-&#955_{13}&#946)^2+
+                    (&#955_{13}&#945-&#955_{11}&#947)^2+
+                    (&#955_{11}&#946-&#955_{12}&#945)^2}
+                \end{equation}
+                \begin{equation}
+                    &#955_{21} = &#955_{13}&#955_{32} - &#955_{12}&#955_{33}
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{22} = &#955_{11}&#955_{33} - &#955_{13}&#955_{31}
+                    \space\space\space\space\space\space\space\space               
+                    &#955_{23} = &#955_{12}&#955_{31} - &#955_{11}&#955_{32}
+                \end{equation}
+            </div>
+            <p>
+                Finalmente, devemos fazer uso da matriz de rotação da seguinte forma:
+            </p>
+            <div class="math">
+                \begin{equation}
+                    K_{G} = R^T K_{L} R
+                \end{equation}
+            </div>
+            <p>
+                Onde <i>K<sub>G</sub></i> é a matriz de rigidez do elemento de acordo com o
+                sistema de coordenadas global, <i>K<sub>L</sub></i> é a matriz de rigidez 
+                do elemento de acordo com o sistema de coordenadas local, <i>R</i> é a 
+                matriz de rotação e <i>R<sup>T</sup></i> é a transposta da matriz de rotação.
+            </p>
+            <p>
+                Na aba <i>Matrizes Locais</i>, a lista dos elementos da estrutura será mostrada e você 
+                poderá selecionar qualquer um deles e visualizar todas as suas matrizes locais:
+                a matriz das cargas, a matriz de rigidez, a matriz dos deslocamentos e a matriz de rotação.
+            </p>    
+            <img src="../Assets/SistemaLocalInserir.jpg" style="width:13%;position:relative;left:500px;">
+            <img src="../Assets/SistemaLocalLista.jpg" style="width:20%;position:relative;left:580px;top:15px;">
+    
+        </div>
+        <div id="Global">
+            <br>
+            <h2>Sistema Global</h2>
+            <p>
+                Com as matrizes locais formadas e devidamente orientadas de acordo com o 
+                sistema de coordenadas global, podemos agrupá-las para formar o 
+                sistema global. O primeiro passo para formar o sistema global é a montagem
+                das matrizes das cargas e dos deslocamentos, que já nos permitirá obter
+                o formato da equação do sistema global. Considerando que <i>N</i> é 
+                a quantidade total de pontos da estrutura e que cada ponto possui 6 tipos 
+                de cargas externas e 6 tipos de deslocamentos, temos:
+            </p>
+            <div class="math" id="FU">
+                \begin{equation}
+                    F = 
+                    \begin{pmatrix}
+                        F_{1} \\
+                        F_{2} \\
+                        F_{3} \\
+                        \vdots \\
+                        F_{N}
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    F_{1} = 
+                    \begin{pmatrix}
+                        F_{X1} \\
+                        F_{Y1} \\
+                        F_{Z1} \\
+                        M_{X1} \\
+                        M_{Y1} \\
+                        M_{Z1} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    F_{2} = 
+                    \begin{pmatrix}
+                        F_{X2} \\
+                        F_{Y2} \\
+                        F_{Z2} \\
+                        M_{X2} \\
+                        M_{Y2} \\
+                        M_{Z2} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    F_{3} = 
+                    \begin{pmatrix}
+                        F_{X3} \\
+                        F_{Y3} \\
+                        F_{Z3} \\
+                        M_{X3} \\
+                        M_{Y3} \\
+                        M_{Z3} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    F_{N} = 
+                    \begin{pmatrix}
+                        F_{XN} \\
+                        F_{YN} \\
+                        F_{ZN} \\
+                        M_{XN} \\
+                        M_{YN} \\
+                        M_{ZN} \\
+                    \end{pmatrix}
+                \end{equation}
+                \begin{equation}
+                    U = 
+                    \begin{pmatrix}
+                        U_{1} \\
+                        U_{2} \\
+                        U_{3} \\
+                        \vdots \\
+                        U_{N}
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    U_{1} = 
+                    \begin{pmatrix}
+                        &#948_{X1} \\
+                        &#948_{Y1} \\
+                        &#948_{Z1} \\
+                        &#966_{X1} \\
+                        &#966_{Y1} \\
+                        &#966_{Z1} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    U_{2} = 
+                    \begin{pmatrix}
+                        &#948_{X2} \\
+                        &#948_{Y2} \\
+                        &#948_{Z2} \\
+                        &#966_{X2} \\
+                        &#966_{Y2} \\
+                        &#966_{Z2} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    U_{3} = 
+                    \begin{pmatrix}
+                        &#948_{X3} \\
+                        &#948_{Y3} \\
+                        &#948_{Z3} \\
+                        &#966_{X3} \\
+                        &#966_{Y3} \\
+                        &#966_{Z3} \\
+                    \end{pmatrix}
+                    \space\space\space\space\space\space\space\space               
+                    U_{N} = 
+                    \begin{pmatrix}
+                        &#948_{XN} \\
+                        &#948_{YN} \\
+                        &#948_{ZN} \\
+                        &#966_{XN} \\
+                        &#966_{YN} \\
+                        &#966_{ZN} \\
+                    \end{pmatrix}
+                \end{equation}
+            </div>
+            <p>
+                Assim, obtemos o formato do sistema global:
+            </p>
+            <div class="math">
+                \begin{equation}
+                    [F]_{6N &#1093 1} = [K]_{6N &#1093 6N}[U]_{6N &#1093 1}
+                \end{equation}
+            </div>
+            <p>
+                Para montar a matriz de rigidez global (MRG), devemos simplesmente endereçar 
+                os termos de cada matriz de rigidez local (MRL) na devida posição na MRG, tendo
+                como base a carga externa e o deslocamento a que esse termo está relacionado.
+            </p>
+            <p>
+                Para saber a que carga e a que deslocamento um termo da MRL está associado, basta
+                observarmos os índices da linha e da coluna que ele se encontra. O índice da linha
+                indica a carga que ele está associado e o índice da coluna, o deslocamento. 
+            </p>
+            <p>
+                <b><i>Exemplo</i></b>: Considere uma estrutura  com 3 pontos e 2 conectividades (1-2 e 2-3).
+            </p>  
+            <img src="../Assets/exemplo.jpg" style="width:30%;position:relative;left:550px;">
+            <p>
+                Tomemos o primeiro elemento como exemplo. Sua MRL será referenciada como <i>A</i>. 
+                O termo <i>A<sub>8,2</sub></i> está associado ao deslocamento da linha 2 na matriz 
+                dos deslocamentos, que é: &#948<i><sub>Y1</sub></i>, e 
+                à carga da linha 8 na matriz das cargas, que é: <i>F<sub>Y2</sub></i>.
+            </p>
+            <p>
+                Assim como na MRL, cada termo da MRG está associado a uma carga e a um deslocamento. 
+                Assim, basta nós transferirmos todos os termos das MRL's para a MRG de forma que
+                cada termo continue associado ao mesmo deslocamento e à mesma carga. 
+                Fazendo isso, você irá notar que alguns termos irão se sobrepor, visto que os pontos
+                da estrutura podem fazer parte de mais de um elemento. Quando isso ocorre, os
+                termos devem ser somados. Desta forma, para o exemplo dado, temos:
+            </p>
+            <div class="math" style="font-size:16px;">
+                \begin{equation}
+                    \begin{pmatrix}
+                        F_{X1} \\
+                        F_{Y1} \\
+                        F_{Z1} \\
+                        M_{X1} \\
+                        M_{Y1} \\
+                        M_{Z1} \\
+                        F_{X2} \\
+                        \bf{F_{Y2}} \\
+                        F_{Z2} \\
+                        M_{X2} \\
+                        M_{Y2} \\
+                        M_{Z2} \\
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                        A_{1,1} & A_{1,2} & A_{1,3} & A_{1,4} & A_{1,5} & A_{1,6} & A_{1,7} & A_{1,8} & A_{1,9} & A_{1,10} & A_{1,11} & A_{1,12} \\
+                        A_{2,1} & A_{2,2} & A_{2,3} & A_{2,4} & A_{2,5} & A_{2,6} & A_{2,7} & A_{2,8} & A_{2,9} & A_{2,10} & A_{2,11} & A_{2,12} \\
+                        A_{3,1} & A_{3,2} & A_{3,3} & A_{3,4} & A_{3,5} & A_{3,6} & A_{3,7} & A_{3,8} & A_{3,9} & A_{3,10} & A_{3,11} & A_{3,12} \\
+                        A_{4,1} & A_{4,2} & A_{4,3} & A_{4,4} & A_{4,5} & A_{4,6} & A_{4,7} & A_{4,8} & A_{4,9} & A_{4,10} & A_{4,11} & A_{4,12} \\
+                        A_{5,1} & A_{5,2} & A_{5,3} & A_{5,4} & A_{5,5} & A_{5,6} & A_{5,7} & A_{5,8} & A_{5,9} & A_{5,10} & A_{5,11} & A_{5,12} \\
+                        A_{6,1} & A_{6,2} & A_{6,3} & A_{6,4} & A_{6,5} & A_{6,6} & A_{6,7} & A_{6,8} & A_{6,9} & A_{6,10} & A_{6,11} & A_{6,12} \\
+                        A_{7,1} & A_{7,2} & A_{7,3} & A_{7,4} & A_{7,5} & A_{7,6} & A_{7,7} & A_{7,8} & A_{7,9} & A_{7,10} & A_{7,11} & A_{7,12} \\
+                        A_{8,1} & \bf{A_{8,2}} & A_{8,3} & A_{8,4} & A_{8,5} & A_{8,6} & A_{8,7} & A_{8,8} & A_{8,9} & A_{8,10} & A_{8,11} & A_{8,12} \\
+                        A_{9,1} & A_{9,2} & A_{9,3} & A_{9,4} & A_{9,5} & A_{9,6} & A_{9,7} & A_{9,8} & A_{9,9} & A_{9,10} & A_{9,11} & A_{9,12} \\
+                        A_{10,1} & A_{10,2} & A_{10,3} & A_{10,4} & A_{10,5} & A_{10,6} & A_{10,7} & A_{10,8} & A_{10,9} & A_{10,10} & A_{10,11} & A_{10,12} \\
+                        A_{11,1} & A_{11,2} & A_{11,3} & A_{11,4} & A_{11,5} & A_{11,6} & A_{11,7} & A_{11,8} & A_{11,9} & A_{11,10} & A_{11,11} & A_{11,12} \\
+                        A_{12,1} & A_{12,2} & A_{12,3} & A_{12,4} & A_{12,5} & A_{12,6} & A_{12,7} & A_{12,8} & A_{12,9} & A_{12,10} & A_{12,11} & A_{12,12} \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        &#948_{X1} \\
+                        \bf{&#948_{Y1}} \\
+                        &#948_{Z1} \\
+                        &#966_{X1} \\
+                        &#966_{Y1} \\
+                        &#966_{Z1} \\
+                        &#948_{X2} \\
+                        &#948_{Y2} \\
+                        &#948_{Z2} \\
+                        &#966_{X2} \\
+                        &#966_{Y2} \\
+                        &#966_{Z2} \\
+                    \end{pmatrix}
+                \end{equation}
+                \begin{equation}
+                    \begin{pmatrix}
+                        F_{X2} \\
+                        F_{Y2} \\
+                        F_{Z2} \\
+                        M_{X2} \\
+                        M_{Y2} \\
+                        M_{Z2} \\
+                        F_{X3} \\
+                        F_{Y3} \\
+                        F_{Z3} \\
+                        M_{X3} \\
+                        M_{Y3} \\
+                        M_{Z3} \\
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                        B_{1,1} & B_{1,2} & B_{1,3} & B_{1,4} & B_{1,5} & B_{1,6} & B_{1,7} & B_{1,8} & B_{1,9} & B_{1,10} & B_{1,11} & B_{1,12} \\
+                        B_{2,1} & B_{2,2} & B_{2,3} & B_{2,4} & B_{2,5} & B_{2,6} & B_{2,7} & B_{2,8} & B_{2,9} & B_{2,10} & B_{2,11} & B_{2,12} \\
+                        B_{3,1} & B_{3,2} & B_{3,3} & B_{3,4} & B_{3,5} & B_{3,6} & B_{3,7} & B_{3,8} & B_{3,9} & B_{3,10} & B_{3,11} & B_{3,12} \\
+                        B_{4,1} & B_{4,2} & B_{4,3} & B_{4,4} & B_{4,5} & B_{4,6} & B_{4,7} & B_{4,8} & B_{4,9} & B_{4,10} & B_{4,11} & B_{4,12} \\
+                        B_{5,1} & B_{5,2} & B_{5,3} & B_{5,4} & B_{5,5} & B_{5,6} & B_{5,7} & B_{5,8} & B_{5,9} & B_{5,10} & B_{5,11} & B_{5,12} \\
+                        B_{6,1} & B_{6,2} & B_{6,3} & B_{6,4} & B_{6,5} & B_{6,6} & B_{6,7} & B_{6,8} & B_{6,9} & B_{6,10} & B_{6,11} & B_{6,12} \\
+                        B_{7,1} & B_{7,2} & B_{7,3} & B_{7,4} & B_{7,5} & B_{7,6} & B_{7,7} & B_{7,8} & B_{7,9} & B_{7,10} & B_{7,11} & B_{7,12} \\
+                        B_{8,1} & B_{8,2} & B_{8,3} & B_{8,4} & B_{8,5} & B_{8,6} & B_{8,7} & B_{8,8} & B_{8,9} & B_{8,10} & B_{8,11} & B_{8,12} \\
+                        B_{9,1} & B_{9,2} & B_{9,3} & B_{9,4} & B_{9,5} & B_{9,6} & B_{9,7} & B_{9,8} & B_{9,9} & B_{9,10} & B_{9,11} & B_{9,12} \\
+                        B_{10,1} & B_{10,2} & B_{10,3} & B_{10,4} & B_{10,5} & B_{10,6} & B_{10,7} & B_{10,8} & B_{10,9} & B_{10,10} & B_{10,11} & B_{10,12} \\
+                        B_{11,1} & B_{11,2} & B_{11,3} & B_{11,4} & B_{11,5} & B_{11,6} & B_{11,7} & B_{11,8} & B_{11,9} & B_{11,10} & B_{11,11} & B_{11,12} \\
+                        B_{12,1} & B_{12,2} & B_{12,3} & B_{12,4} & B_{12,5} & B_{12,6} & B_{12,7} & B_{12,8} & B_{12,9} & B_{12,10} & B_{12,11} & B_{12,12} \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        &#948_{X2} \\
+                        &#948_{Y2} \\
+                        &#948_{Z2} \\
+                        &#966_{X2} \\
+                        &#966_{Y2} \\
+                        &#966_{Z2} \\
+                        &#948_{X3} \\
+                        &#948_{Y3} \\
+                        &#948_{Z3} \\
+                        &#966_{X3} \\
+                        &#966_{Y3} \\
+                        &#966_{Z3} \\
+                    \end{pmatrix}
+                \end{equation}
+                \begin{equation}
+                    \begin{pmatrix}
+                        F_{X1} \\
+                        F_{Y1} \\
+                        F_{Z1} \\
+                        M_{X1} \\
+                        M_{Y1} \\
+                        M_{Z1} \\
+                        F_{X2} \\
+                        F_{Y2} \\
+                        F_{Z2} \\
+                        M_{X2} \\
+                        M_{Y2} \\
+                        M_{Z2} \\
+                        F_{X3} \\
+                        F_{Y3} \\
+                        F_{Z3} \\
+                        M_{X3} \\
+                        M_{Y3} \\
+                        M_{Z3} \\
+                    \end{pmatrix}
+                    =
+                    \begin{pmatrix}
+                        A_{1,1} & A_{1,2} & A_{1,3} & A_{1,4} & A_{1,5} & A_{1,6} & A_{1,7} & A_{1,8} & A_{1,9} & A_{1,10} & A_{1,11} & A_{1,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{2,1} & A_{2,2} & A_{2,3} & A_{2,4} & A_{2,5} & A_{2,6} & A_{2,7} & A_{2,8} & A_{2,9} & A_{2,10} & A_{2,11} & A_{2,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{3,1} & A_{3,2} & A_{3,3} & A_{3,4} & A_{3,5} & A_{3,6} & A_{3,7} & A_{3,8} & A_{3,9} & A_{3,10} & A_{3,11} & A_{3,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{4,1} & A_{4,2} & A_{4,3} & A_{4,4} & A_{4,5} & A_{4,6} & A_{4,7} & A_{4,8} & A_{4,9} & A_{4,10} & A_{4,11} & A_{4,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{5,1} & A_{5,2} & A_{5,3} & A_{5,4} & A_{5,5} & A_{5,6} & A_{5,7} & A_{5,8} & A_{5,9} & A_{5,10} & A_{5,11} & A_{5,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{6,1} & A_{6,2} & A_{6,3} & A_{6,4} & A_{6,5} & A_{6,6} & A_{6,7} & A_{6,8} & A_{6,9} & A_{6,10} & A_{6,11} & A_{6,12} & 0 & 0 & 0 & 0 & 0 & 0 \\
+                        A_{7,1} & A_{7,2} & A_{7,3} & A_{7,4} & A_{7,5} & A_{7,6} & A_{7,7}+B_{1,1} & A_{7,8}+B_{1,2} & A_{7,9}+B_{1,3} & A_{7,10}+B_{1,4} & A_{7,11}+B_{1,5} & A_{7,12}+B_{1,6} & B_{1,7} & B_{1,8} & B_{1,9} & B_{1,10} & B_{1,11} & B_{1,12} \\
+                        A_{8,1} & A_{8,2} & A_{8,3} & A_{8,4} & A_{8,5} & A_{8,6} & A_{8,7}+B_{2,1} & A_{8,8}+B_{2,2} & A_{8,9}+B_{2,3} & A_{8,10}+B_{2,4} & A_{8,11}+B_{2,5} & A_{8,12}+B_{2,6} & B_{2,7} & B_{2,8} & B_{2,9} & B_{2,10} & B_{2,11} & B_{2,12} \\
+                        A_{9,1} & A_{9,2} & A_{9,3} & A_{9,4} & A_{9,5} & A_{9,6} & A_{9,7}+B_{3,1} & A_{9,8}+B_{3,2} & A_{9,9}+B_{3,3} & A_{9,10}+B_{3,4} & A_{9,11}+B_{3,5} & A_{9,12}+B_{3,6} & B_{3,7} & B_{3,8} & B_{3,9} & B_{3,10} & B_{3,11} & B_{3,12} \\
+                        A_{10,1} & A_{10,2} & A_{10,3} & A_{10,4} & A_{10,5} & A_{10,6} & A_{10,7}+B_{4,1} & A_{10,8}+B_{4,2} & A_{10,9}+B_{4,3} & A_{10,10}+B_{4,4} & A_{10,11}+B_{4,5} & A_{10,12}+B_{4,6} & B_{4,7} & B_{4,8} & B_{4,9} & B_{4,10} & B_{4,11} & B_{4,12} \\
+                        A_{11,1} & A_{11,2} & A_{11,3} & A_{11,4} & A_{11,5} & A_{11,6} & A_{11,7}+B_{5,1} & A_{11,8}+B_{5,2} & A_{11,9}+B_{5,3} & A_{11,10}+B_{5,4} & A_{11,11}+B_{5,5} & A_{11,12}+B_{5,6} & B_{5,7} & B_{5,8} & B_{5,9} & B_{5,10} & B_{5,11} & B_{5,12} \\
+                        A_{12,1} & A_{12,2} & A_{12,3} & A_{12,4} & A_{12,5} & A_{12,6} & A_{12,7}+B_{6,1} & A_{12,8}+B_{6,2} & A_{12,9}+B_{6,3} & A_{12,10}+B_{6,4} & A_{12,11}+B_{6,5} & A_{12,12}+B_{6,6} & B_{6,7} & B_{6,8} & B_{6,9} & B_{6,10} & B_{6,11} & B_{6,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{7,1} & B_{7,2} & B_{7,3} & B_{7,4} & B_{7,5} & B_{7,6} & B_{7,7} & B_{7,8} & B_{7,9} & B_{7,10} & B_{7,11} & B_{7,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{8,1} & B_{8,2} & B_{8,3} & B_{8,4} & B_{8,5} & B_{8,6} & B_{8,7} & B_{8,8} & B_{8,9} & B_{8,10} & B_{8,11} & B_{8,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{9,1} & B_{9,2} & B_{9,3} & B_{9,4} & B_{9,5} & B_{9,6} & B_{9,7} & B_{9,8} & B_{9,9} & B_{9,10} & B_{9,11} & B_{9,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{10,1} & B_{10,2} & B_{10,3} & B_{10,4} & B_{10,5} & B_{10,6} & B_{10,7} & B_{10,8} & B_{10,9} & B_{10,10} & B_{10,11} & B_{10,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{11,1} & B_{11,2} & B_{11,3} & B_{11,4} & B_{11,5} & B_{11,6} & B_{11,7} & B_{11,8} & B_{11,9} & B_{11,10} & B_{11,11} & B_{11,12} \\
+                        0 & 0 & 0 & 0 & 0 & 0 & B_{12,1} & B_{12,2} & B_{12,3} & B_{12,4} & B_{12,5} & B_{12,6} & B_{12,7} & B_{12,8} & B_{12,9} & B_{12,10} & B_{12,11} & B_{12,12} \\
+                    \end{pmatrix}
+                    \begin{pmatrix}
+                        &#948_{X1} \\
+                        &#948_{Y1} \\
+                        &#948_{Z1} \\
+                        &#966_{X1} \\
+                        &#966_{Y1} \\
+                        &#966_{Z1} \\
+                        &#948_{X2} \\
+                        &#948_{Y2} \\
+                        &#948_{Z2} \\
+                        &#966_{X2} \\
+                        &#966_{Y2} \\
+                        &#966_{Z2} \\
+                        &#948_{X3} \\
+                        &#948_{Y3} \\
+                        &#948_{Z3} \\
+                        &#966_{X3} \\
+                        &#966_{Y3} \\
+                        &#966_{Z3} \\
+                    \end{pmatrix}
+                \end{equation}
+            </div>
+            <p>
+                Até o momento, na aba <i>Matrizes Globais</i>, só é possível visualizar a matriz de rigidez global.
+            </p>
+        </div>
+    </div>
+    <div id="Resultados">
+        <h1 id="titulo">Resultados</h1>
+        <div>
+            <p>
+                Na aba <i>Resultados</i>, você poderá visualizar os resultados
+                do cálculo da estrutura, com a indicação dos pontos, suas cargas 
+                (ou reações de apoio, caso o ponto aja como apoio) e seus deslocamentos.
+            </p>
+            <img src="../Assets/Resultados.jpg" style="width:70%;position:relative;left:220px;">
+            <p>
+                Você pode filtrar esses resultados usando as caixas de marcação a fim de 
+                visualizar somente os resultados que desejar.
+            </p>
+            <img src="../Assets/CaixasMarcação.jpg" style="width:20%;position:relative;left:620px;">
+            <p>
+                Você pode também visualizar o desenho da estrutura carregada, juntamente com a lista
+                de elementos da estrutura; o desenho da estrutura deformada, indicando o fator de escala; 
+                e o desenho dos diagramas de cada elemento, tendo a opção de visualizá-lo no sistema 
+                de coordenadas local ou global. No campo dos diagramas, você deve indicar o elemento 
+                que deseja analisar e os seus respectivos esforços internos, que são também apresentados
+                numa tabela.
+            </p>
+            <img src="../Assets/CaixaDesenhos.jpg" style="width:20%;position:relative;left:620px;">
+        </div>
+    </div>
+
+</body>  

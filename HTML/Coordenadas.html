@@ -1,0 +1,60 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Coordenadas.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body class="coordenadas">
+
+    <div class="inserir">
+        <div class="ponto">        
+            <label>Ponto </label><input id='ponto-n-coordenadas'>
+        </div>
+        <div class="x">
+            <label>X </label><input id='coordenada-x'><label> m</label>
+        </div>
+        <div class="y">
+            <label>Y </label><input id='coordenada-y'><label> m</label>
+
+        </div>
+        <div class="z">
+            <label>Z </label><input id='coordenada-z'><label> m</label>
+        </div>
+        <input type="button" value="Adicionar" class="adicionar destaque" id='EnterCoordenadas'>
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Ponto</th>
+                    <th>X (m)</th>
+                    <th>Y (m)</th>
+                    <th>Z (m)</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>
+    </div>
+    
+</body>
+
+<script src="../Renderers/Coordenadas.js"></script>

@@ -1,0 +1,35 @@
+{
+  "name": "ENG3D",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bruno Oliveira <brunno.oliver7@gmail.com>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron-json-storage": "^4.1.2",
+    "electron-store": "^2.0.0",
+    "mathjs": "^5.1.1",
+    "three": "^0.96.0",
+    "three.js": "^0.77.1"
+  },
+  "devDependencies": {
+    "electron": "^2.0.8",
+    "electron-builder": "^20.28.4"
+  },
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron ./app",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "com.electron.ENG3D",
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.png"
+    }
+  }
+}

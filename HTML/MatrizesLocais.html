@@ -1,0 +1,128 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/MatrizesLocais.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>
+
+<body>
+
+    <div class="inserir">
+        <div class="elemento">        
+            <label>Elemento </label><input id='elemento'>
+        </div>
+        <input type="button" value="Visualizar" class="visualizar destaque" id='visualizar'>
+    </div>
+
+    <div class="instruções">
+        <p class="texto">
+            Nesta etapa, é possível visualizar as matrizes de cada elemento, sendo elas:
+        </p>
+        <br>
+        <ul class="texto" id="ListaTexto">
+            <li class="texto">A Matriz de Rigidez</li>
+            <li class="texto">A Matriz de Rotação</li>
+            <li class="texto">A Matriz das Cargas</li>
+            <li class="texto">A Matriz dos Deslocamentos</li>
+        </ul> 
+        <br>
+        <p class="texto">
+            Abaixo, você poderá conferir a lista dos elementos com seus respectivos 
+            pontos e conferir com o desenho a fim de escolher o elemento para visualizar
+            suas matrizes locais.
+        </p>
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Ponto A</th>
+                    <th>Ponto B</th>
+                </tr>
+            </thead>
+            <tbody id="bodyElementos"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>
+    </div>
+    
+    <div id="MRL">
+
+        <div id="MRLtexto">
+            <p>Matriz de Rigidez Local</p>
+        </div>
+    
+        <table class="tabela">
+            <tbody id="bodyMRL"></tbody>
+        </table>
+
+    </div>
+
+    <div id="MR">
+
+        <div id="MRtexto">
+            <p>Matriz de Rotação</p>
+        </div>
+    
+        <table class="tabela">
+            <tbody id="bodyMR"></tbody>
+        </table>
+
+    </div>
+
+    <div id="pAUX">
+
+        <div id="pAUXtexto">
+            <p>Ponto Auxiliar</p>
+        </div>
+
+        <table class="tabela">
+            <tbody id="bodypAUX"></tbody>
+        </table>
+
+    </div>
+    
+    <div id="MC">
+
+        <div id="MCtexto">
+            <p>Matriz das Cargas</p>
+        </div>
+
+        <table class="tabela">
+            <tbody id="bodyMC"></tbody>
+        </table>
+
+    </div>
+
+    <div id="MD">
+
+        <div id="MDtexto">
+            <p>Matriz dos Deslocamentos</p>
+        </div>
+
+        <table class="tabela">
+            <tbody id="bodyMD"></tbody>
+        </table>
+
+    </div>
+    
+</body>
+
+<script src="../Renderers/MatrizesLocais.js"></script>

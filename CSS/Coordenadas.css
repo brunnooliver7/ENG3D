@@ -1,0 +1,185 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+body {
+    font-family: Calibri;
+    color: white;
+}
+/* --------------------------------------------- INÍCIO MENU --------------------------------------------- */
+/* Retângulo itens menu */
+.inicio, .dados, .matrizes, .resultados {
+    margin-left: 5px;
+    margin-top: 5px;
+    width: calc(100%/9 - 5.8px);
+    height: 40px;
+    float: left;
+    background-color: red;
+    opacity: .75;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+}
+/* A cor desta classe é redefinida */
+.inicio {
+    background-color: rgb(15, 184, 15);
+}
+/* A cor desta classe é redefinida */
+.matrizes {
+    background-color: purple;
+}
+/* A cor desta classe é redefinida */
+.resultados {
+    background-color: rgb(255, 81, 0);
+}
+/* Texto itens menu */
+.inicio a , .dados a , .matrizes a , .resultados a {
+    margin-left: 0px;
+    padding: 0px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+/* Passar o mouse nos itens do menu */
+.inicio:hover, .dados:hover, .matrizes:hover, .resultados:hover {
+    background-color: black;
+}
+/* --------------------------------------------- FIM MENU --------------------------------------------- */
+/* ------------------------------------------ INÍCIO INSERIR -------------------------------------------- */
+.inserir {
+    margin: 5px;
+    width: 250px;
+    height: 305px;
+    position: absolute;
+    top: 50px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    background-color: rgba(255, 0, 0, 0.5);
+    z-index: 0;
+}
+/* Caixa de cada inserir */
+.ponto,.x,.y,.z {
+    
+    margin: 5px;
+    padding: 5px;
+
+    line-height: 35px;
+    
+    width: 200px;
+    height: 50px;
+
+    position: relative;
+    left: 15px;
+    top: 10px;
+
+    border: solid 1px black;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    text-align: center;
+    font-size: 20px;
+    font-family: Calibri;
+
+}
+/* inputs (onde se digita) */
+.ponto input, .x input, .y input, .z input {
+    border-radius: 10px;
+    height: 20px;
+    width: 60px;
+    text-align: center;
+}
+/* Caixa do botão adicionar */
+.adicionar {
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 10px;
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    font-family: Calibri
+}
+.destaque {
+    background: red;
+    color: white;
+    border: 0px;
+}
+#EnterCoordenadas {
+    left: 45px;
+    top: 10px;
+}
+/* ------------------------------------------ FIM INSERIR -------------------------------------------- */
+/* ------------------------------------------ INÍCIO LISTA -------------------------------------------- */
+/* Caixa lista */
+.lista {
+    margin: 5px;
+    width: 340px;
+    height: auto;
+    max-height: 720px;
+    position: absolute;
+    left: 255px;
+    top: 50px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    background-color: rgba(255,0,0, 0.5);
+    text-align: center;
+    overflow: auto;
+}
+/* Tabela dentro da caixa lista */
+.tabela {
+    left: 10px;
+    top: 0px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    margin: 10px;
+}
+/* Itens da tabela */
+th, td {
+    padding: 10px;
+    width: 50px;
+}
+/* Linha abaixo do cabeçalho */
+thead tr {
+    border-bottom: solid 3px #444;
+}
+/* Destacar linha ao passar o mouse */
+tbody tr:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+/* Colorir linhas alternadamente */
+tr:nth-child(even) {
+background-color: rgba(255, 0, 0, 0.1);
+}
+/* ScrollBar width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+/* ScrollBar Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+/* ScrollBar Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+/* ScrollBar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+/* ------------------------------------------ FIM LISTA -------------------------------------------- */
+/* ---------------------------------------- INÍCIO DESENHO ----------------------------------------- */
+#canvasCarregada {
+    position: absolute;
+    top: 55px;
+    left:605px;
+    border: solid 2px black;
+    box-sizing: border-box;
+}
+/* ----------------------------------------- FIM DESENHO ------------------------------------------- */

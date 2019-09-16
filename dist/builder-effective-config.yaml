@@ -1,0 +1,8 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.electron.ENG3D
+win:
+  target: NSIS
+  icon: build/icon.png
+electronVersion: 2.0.8

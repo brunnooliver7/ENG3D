@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Restricoes.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+        
+    <div class="inserir">
+        <div class="ponto">        
+            <label>Ponto </label><input id='ponto'>
+        </div>
+        <div class="tx">
+            <label>TX</label><input type="checkbox" id='tx'>
+        </div>
+        <div class="ty">
+            <label>TY</label><input type="checkbox" id='ty'>
+        </div>
+        <div class="tz">
+            <label>TZ</label><input type="checkbox"t id='tz'>
+        </div>
+        <div class="rx">
+            <label>RX</label><input type="checkbox" id='rx'>
+        </div>
+        <div class="ry">
+            <label>RY</label><input type="checkbox" id='ry'>
+        </div>
+        <div class="rz">
+            <label>RZ</label><input type="checkbox" id='rz'>
+        </div>
+        <input type="button" value="Adicionar" class="adicionar destaque" id='EnterRestricoes'>
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Ponto</th>
+                    <th>TX</th>
+                    <th>TY</th>
+                    <th>TZ</th>
+                    <th>RX</th>
+                    <th>RY</th>
+                    <th>RZ</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>
+    </div>
+
+</body>
+
+<script src="../Renderers/Restricoes.js"></script>

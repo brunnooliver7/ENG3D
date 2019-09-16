@@ -1,0 +1,177 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Resultados.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+        
+    <div class="inserir">
+        <div class="tx">
+            <label>&#948<sub>x</sub></label><input type="checkbox" id='tx'>
+        </div>
+        <div class="ty">
+            <label>&#948<sub>y</sub></label><input type="checkbox" id='ty'>
+        </div>
+        <div class="tz">
+            <label>&#948<sub>z</sub></label><input type="checkbox"t id='tz'>
+        </div>
+        <div class="rx">
+            <label>&#966<sub>x</sub></label><input type="checkbox" id='rx'>
+        </div>
+        <div class="ry">
+            <label>&#966<sub>y</sub></label><input type="checkbox" id='ry'>
+        </div>
+        <div class="rz">
+            <label>&#966<sub>z</sub></label><input type="checkbox" id='rz'>
+        </div>
+        <div class="fx">
+            <label>F<sub>x</sub></label><input type="checkbox" id='fx'>
+        </div>
+        <div class="fy">
+            <label>F<sub>y</sub></label><input type="checkbox" id='fy'>
+        </div>
+        <div class="fz">
+            <label>F<sub>z</sub></label><input type="checkbox" id='fz'>
+        </div>
+        <div class="mx">
+            <label>M<sub>x</sub></label><input type="checkbox" id='mx'>
+        </div>
+        <div class="my">
+            <label>M<sub>y</sub></label><input type="checkbox" id='my'>
+        </div>
+        <div class="mz">
+            <label>M<sub>z</sub></label><input type="checkbox" id='mz'>
+        </div>
+        <input type="button" value="Marcar/Desmarcar tudo" class="selecionar destaque" id="Selecionar">
+        <input type="button" value="Visualizar" class="visualizar destaque" id="Visualizar">
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead id="cabecalho">
+                <tr>
+                    <th>Ponto</th>
+                    <th>&#948<sub>x</sub> (mm)</th>
+                    <th>&#948<sub>y</sub> (mm)</th>
+                    <th>&#948<sub>z</sub> (mm)</th>
+                    <th>&#966<sub>x</sub> (rad)</th>
+                    <th>&#966<sub>y</sub> (rad)</th>
+                    <th>&#966<sub>z</sub> (rad)</th>
+                    <th>F<sub>x</sub> (kN)</th>
+                    <th>F<sub>y</sub> (kN)</th>
+                    <th>F<sub>z</sub> (kN)</th>
+                    <th>M<sub>x</sub> (kN)</th>
+                    <th>M<sub>y</sub> (kN)</th>
+                    <th>M<sub>z</sub> (kN)</th>
+                </tr>
+            </thead>
+            <tbody id="corpo"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>         
+    </div>
+
+    <div id="canvasDeformada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Deformada.js"></script>         
+    </div>
+
+    <div id="canvasDiagramaLocal">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../DiagramaLocal.js"></script>         
+    </div>
+
+    <div id="canvasDiagramaGlobal">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../DiagramaGlobal.js"></script>         
+    </div>
+
+    <div class="inserirDesenho">
+      
+        <div>
+            <input type="button" value="Estrutura Carregada" class="EstruturaCarregada destaque" id="EstruturaCarregada">
+            <div id="listaElementos">
+                <table class="tabela" id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Elemento</th>
+                            <th>Ponto A</th>
+                            <th>Ponto B</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyElementos"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr id="line1">
+
+        <div>
+            <input type="button" value="Estrutura Deformada" class="EstruturaDeformada destaque" id="EstruturaDeformada">
+            <div class="escala">
+                <label>Escala </label><input id="escala">
+            </div>    
+        </div>
+
+        <hr id="line2">
+
+        <div>
+            <input type="button" value="Diagrama Global" class="DiagramaGlobal destaque" id="DiagramaGlobal">
+            <input type="button" value="Diagrama Local" class="DiagramaLocal destaque" id="DiagramaLocal">
+            <div class="elemento">
+                <label>Elemento </label><input id="elemento">
+            </div>    
+            <div class="fxDiagrama">
+                <label>F<sub>x</sub></label><input type="checkbox" id='fxDiagrama'>
+            </div>
+            <div class="fyDiagrama">
+                <label>F<sub>y</sub></label><input type="checkbox" id='fyDiagrama'>
+            </div>
+            <div class="fzDiagrama">
+                <label>F<sub>z</sub></label><input type="checkbox" id='fzDiagrama'>
+            </div>
+            <div class="mxDiagrama">
+                <label>M<sub>x</sub></label><input type="checkbox" id='mxDiagrama'>
+            </div>
+            <div class="myDiagrama">
+                <label>M<sub>y</sub></label><input type="checkbox" id='myDiagrama'>
+            </div>
+            <div class="mzDiagrama">
+                <label>M<sub>z</sub></label><input type="checkbox" id='mzDiagrama'>
+            </div>
+            <div id="MC">
+            
+                <table class="tabela">
+                    <tbody id="bodyMC"></tbody>
+                </table>
+        
+            </div>
+            
+        </div>
+        
+    </div>
+
+</body>
+
+<script src="../Renderers/Resultados.js"></script>

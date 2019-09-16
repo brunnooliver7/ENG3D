@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Cargas.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+
+    <div class="inserir">
+        <div class="ponto">        
+            <label>Ponto </label><input id='ponto'>
+        </div>
+        <div class="fx">
+            <label>FX </label><input id='fx'><label> kN </label>
+        </div>
+        <div class="fy">
+            <label>FY </label><input id='fy'><label> kN </label>
+        </div>
+        <div class="fz">
+            <label>FZ </label><input id='fz'><label> kN </label>
+        </div>
+        <div class="mx">
+            <label>MX </label><input id='mx'><label> kNm</label>
+        </div>
+        <div class="my">
+            <label>MY </label><input id='my'><label> kNm</label>
+        </div>
+        <div class="mz">
+            <label>MZ </label><input id='mz'><label> kNm</label>
+        </div>
+        <input type="button" value="Adicionar" class="adicionar destaque" id='EnterCargas'>
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Ponto</th>
+                    <th>FX (kN)</th>
+                    <th>FY (kN)</th>
+                    <th>FZ (kN)</th>
+                    <th>MX (kNm)</th>
+                    <th>MY (kNm)</th>
+                    <th>MZ (kNm)</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>
+    </div>
+
+</body>
+
+<script src="../Renderers/Cargas.js"></script>

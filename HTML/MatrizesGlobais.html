@@ -1,0 +1,66 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/MatrizesGlobais.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+    
+    <!-- <div class="instruções">
+        <p class="texto">
+            Nesta etapa, é possível visualizar as matrizes globais da estrutura, sendo elas:
+        </p>
+        <br>
+        <ul class="texto" id="ListaTexto">
+            <li class="texto">A Matriz de Mapeamento dos Elementos</li>
+            <li class="texto">A Matriz de Rigidez Global</li>
+            <li class="texto">A Matriz de Rigidez Global de 0's e 1's</li>
+            <li class="texto">A Matriz Global das Cargas</li>
+            <li class="texto">A Matriz Global dos Deslocamentos</li>
+        </ul> 
+        <br>
+        <p class="texto">
+            Além disso, você poderá utilizar alguns filtros a fim de compreender melhor a 
+            montagem da matriz de rigidez global.
+        </p>
+    </div> -->
+
+    <div id="MRG">
+
+        <div id="MRGtexto">
+            <p>Matriz de Rigidez Global</p>
+        </div>
+        
+        <table class="tabela">
+            <tbody id="bodyMRG"></tbody>
+        </table>
+
+    </div>
+
+    <!-- <div id="MRG01">
+
+        <div id="MRG01texto">
+            <p>Matriz de Rigidez Global de 0's e 1's</p>
+        </div>
+        
+        <table class="tabela">
+            <tbody id="bodyMRG01"></tbody>
+        </table>
+
+    </div> -->
+    
+</body>
+
+<script src="../Renderers/MatrizesGlobais.js"></script>

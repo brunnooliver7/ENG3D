@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../CSS/Conectividades.css">
+</head>
+
+<nav>
+    <ul>
+        <li class="inicio"><a href="Inicio.html">Início</a></li>
+        <li class="dados"><a href="Coordenadas.html">Coordenadas</a></li>
+        <li class="dados"><a href="Conectividades.html">Conectividades</a></li>
+        <li class="dados"><a href="Restricoes.html">Restrições</a></li>
+        <li class="dados"><a href="Cargas.html">Cargas</a></li>
+        <li class="dados"><a href="Propriedades.html">Propriedades</a></li>
+        <li class="matrizes"><a href="MatrizesLocais.html">Matrizes Locais</a></li>
+        <li class="matrizes"><a href="MatrizesGlobais.html">Matrizes Globais</a></li>
+        <li class="resultados"><a href="Resultados.html">Resultados</a></li>
+    </ul>
+</nav>  
+
+<body>
+
+    <div class="inserir">
+        <div class="elemento">        
+            <label>Elemento </label><input id='elemento'>
+        </div>
+        <div class="ponto-a">
+            <label>Ponto A </label><input id='ponto-a'>
+        </div>
+        <div class="ponto-b">
+            <label>Ponto B </label><input id='ponto-b'>
+        </div>
+        <input type="button" value="Adicionar" class="adicionar destaque" id='EnterConectividades'>
+    </div>
+
+    <div class="lista">
+        <table class="tabela">
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Ponto A</th>
+                    <th>Ponto B</th>
+                </tr>
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+    </div>
+
+    <div id="canvasCarregada">
+        <script src="../Assets/Script1ThreeJS.js"></script>
+        <script src="../Assets/OrbitControls.js"></script>
+        <script src="../Desenho.js"></script>
+    </div>
+
+</body>
+
+<script src="../Renderers/Conectividades.js"></script>
