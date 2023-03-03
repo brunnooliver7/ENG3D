@@ -1,0 +1,8 @@
+version: 1.0.0
+files:
+  - url: ENG3D-Setup-1.0.0.exe
+    sha512: d76weg34fH5HbOEZNdyUhP0blvxdXt5HC5QaALBR5YkL/M4MrdJI2bxqfTFL+KzwdUHPtGPSBtK3oe2mbUIC9w==
+    size: 39848037
+path: ENG3D-Setup-1.0.0.exe
+sha512: d76weg34fH5HbOEZNdyUhP0blvxdXt5HC5QaALBR5YkL/M4MrdJI2bxqfTFL+KzwdUHPtGPSBtK3oe2mbUIC9w==
+releaseDate: '2023-03-03T01:41:01.683Z'
