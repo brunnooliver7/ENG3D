@@ -16,7 +16,9 @@
     "electron-store": "^2.0.0",
     "mathjs": "^7.5.1",
     "three": "^0.137.0",
-    "three.js": "^0.77.1",
+    "three.js": "^0.77.1"
+  },
+  "devDependencies": {
     "electron": "^2.0.8",
     "electron-builder": "^20.44.4"
   },
